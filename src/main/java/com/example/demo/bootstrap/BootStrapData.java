@@ -39,33 +39,75 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-       /*
-        OutsourcedPart o= new OutsourcedPart();
-        o.setCompanyName("Western Governors University");
-        o.setName("out test");
-        o.setInv(5);
-        o.setPrice(20.0);
-        o.setId(100L);
-        outsourcedPartRepository.save(o);
-        OutsourcedPart thePart=null;
-        List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
-        for(OutsourcedPart part:outsourcedParts){
-            if(part.getName().equals("out test"))thePart=part;
+        if (outsourcedPartRepository.count() == 0) {
+            OutsourcedPart keycaps = new OutsourcedPart();
+            keycaps.setCompanyName("Basic Keys Company");
+            keycaps.setName("Keycaps");
+            keycaps.setInv(200);
+            keycaps.setPrice(20.0);
+            keycaps.setId(1);
+
+            OutsourcedPart stabilizer = new OutsourcedPart();
+            stabilizer.setCompanyName("Expensekeys Company");
+            stabilizer.setName("Stabilizer");
+            stabilizer.setInv(30);
+            stabilizer.setPrice(3.0);
+            stabilizer.setId(2);
+
+            OutsourcedPart film = new OutsourcedPart();
+            film.setCompanyName("Sleekeys Ltd.");
+            film.setName("Keycap Film");
+            film.setInv(100);
+            film.setPrice(1.0);
+            film.setId(3);
+
+            OutsourcedPart customKeys = new OutsourcedPart();
+            customKeys.setCompanyName("Expensekeys Company");
+            customKeys.setName("Custom Art Keycap");
+            customKeys.setInv(10);
+            customKeys.setPrice(50.0);
+            customKeys.setId(4);
+
+            OutsourcedPart base = new OutsourcedPart();
+            base.setCompanyName("SleeKeys Ltd.");
+            base.setName("Keyboard Base");
+            base.setInv(100);
+            base.setPrice(30.0);
+            base.setId(5);
+
+            outsourcedPartRepository.save(keycaps);
+            outsourcedPartRepository.save(stabilizer);
+            outsourcedPartRepository.save(film);
+            outsourcedPartRepository.save(customKeys);
+            outsourcedPartRepository.save(base);
+
+            OutsourcedPart thePart = null;
+            List<OutsourcedPart> outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+            for (OutsourcedPart part : outsourcedParts) {
+                if (part.getName().equals("Keycaps")) thePart = part;
+            }
+
+            System.out.println(thePart.getCompanyName());
         }
 
-        System.out.println(thePart.getCompanyName());
-        */
         List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
         for(OutsourcedPart part:outsourcedParts){
             System.out.println(part.getName()+" "+part.getCompanyName());
         }
 
-        /*
-        Product bicycle= new Product("bicycle",100.0,15);
-        Product unicycle= new Product("unicycle",100.0,15);
-        productRepository.save(bicycle);
-        productRepository.save(unicycle);
-        */
+         if (productRepository.count() == 0) {
+             Product cuteKeyboard = new Product("Cute Keyboard", 100.0, 40);
+             Product modernKeyboard = new Product("Modern Keyboard", 200.0, 20);
+             Product ergonomicKeyboard = new Product("Ergonomic Keyboard", 150.0, 15);
+             Product splitKeyboard = new Product("Split Keyboard", 300.0, 15);
+             Product customKeyboard = new Product("Custom Keyboard", 400.0, 10);
+             productRepository.save(cuteKeyboard);
+             productRepository.save(modernKeyboard);
+             productRepository.save(ergonomicKeyboard);
+             productRepository.save(splitKeyboard);
+             productRepository.save(customKeyboard);
+            }
+
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of Products"+productRepository.count());

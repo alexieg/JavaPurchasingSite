@@ -21,4 +21,7 @@ Created AboutController
 Imported Controller, GetMapping, Autowired, and Application Context, lines 3-6
 Created mapping for the about page to be used with the About Us button, lines 10-15
 
+Part E
 
+Modified BootStrapData by adding a sample inventory of five parts and five products that will remain 5 by default based on the count of outsourced
+part repository and product repository, lines 42-87 and lines 98-108
