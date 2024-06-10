@@ -25,3 +25,11 @@ Part E
 
 Modified BootStrapData by adding a sample inventory of five parts and five products that will remain 5 by default based on the count of outsourced
 part repository and product repository, lines 42-87 and lines 98-108
+
+Part D
+Created a new controller 'ProductBuyController' to handle product purchases
+Created purchaseProduct in ProductBuyController that handles decreasing the product inventory count and returns success or failure, lines 30-37
+Created purchaseStatus in ProductBuyController that returns message and depending on success or failure, lines 39-50
+
+Created purchasestatus.html that displays message from purchaseStatus and
+displays a return home option , lines 17-22
