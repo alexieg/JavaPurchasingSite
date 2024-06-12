@@ -46,6 +46,8 @@ public class BootStrapData implements CommandLineRunner {
             keycaps.setInv(200);
             keycaps.setPrice(20.0);
             keycaps.setId(1);
+            keycaps.setInvMin(100);
+            keycaps.setInvMax(400);
 
             OutsourcedPart stabilizer = new OutsourcedPart();
             stabilizer.setCompanyName("Expensekeys Company");
@@ -53,6 +55,8 @@ public class BootStrapData implements CommandLineRunner {
             stabilizer.setInv(30);
             stabilizer.setPrice(3.0);
             stabilizer.setId(2);
+            stabilizer.setInvMin(10);
+            stabilizer.setInvMax(60);
 
             OutsourcedPart film = new OutsourcedPart();
             film.setCompanyName("Sleekeys Ltd.");
@@ -60,6 +64,8 @@ public class BootStrapData implements CommandLineRunner {
             film.setInv(100);
             film.setPrice(1.0);
             film.setId(3);
+            film.setInvMin(50);
+            film.setInvMax(300);
 
             OutsourcedPart customKeys = new OutsourcedPart();
             customKeys.setCompanyName("Expensekeys Company");
@@ -67,6 +73,8 @@ public class BootStrapData implements CommandLineRunner {
             customKeys.setInv(10);
             customKeys.setPrice(50.0);
             customKeys.setId(4);
+            customKeys.setInvMin(1);
+            customKeys.setInvMax(50);
 
             OutsourcedPart base = new OutsourcedPart();
             base.setCompanyName("SleeKeys Ltd.");
@@ -74,6 +82,8 @@ public class BootStrapData implements CommandLineRunner {
             base.setInv(100);
             base.setPrice(30.0);
             base.setId(5);
+            base.setInvMax(200);
+            base.setInvMin(20);
 
             outsourcedPartRepository.save(keycaps);
             outsourcedPartRepository.save(stabilizer);
