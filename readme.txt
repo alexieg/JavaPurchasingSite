@@ -44,4 +44,13 @@ Added invMin and invMax input fields with error messaging to outsourcedpartform.
 Added minimum inventory and maximum inventory categories to mainscreen.html, lines 45 and 46
 Renamed database to keyed-in-new and reflected the change in application properties, line 6
 
+Part H
+Specified error messages from Part G of addinhousepartcontroller and addoutsourcedpartcontroller (lines 42-56) to let user know whether their inventory is below the min or above the max
+Added validation to enufpartsvalidator to check for the appropriate amount of associated parts when adding/updating products (line 37)
+
+Part I
+Created successful test unit for setInvMin under PartTest, lines 153-160
+Created successful test unit for getInvMin under PartTest, lines 162-169
+Created successful test unit for setInvMax under PartTest, lines 171-178
+Created successful test unit for getInvMax under PartTest, lines 180-187
 

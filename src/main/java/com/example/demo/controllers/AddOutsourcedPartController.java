@@ -44,8 +44,11 @@ public class AddOutsourcedPartController {
             return "OutsourcedPartForm";
         }
 
-        if (part.getInv() < part.getInvMin() || part.getInv() > part.getInvMax()) {
-            bindingResult.rejectValue("inv", "invError", "Inventory should be between " + part.getInvMin() + " and " + part.getInvMax());
+        if (part.getInv() < part.getInvMin()) {
+            bindingResult.rejectValue("inv", "invError", "Inventory should not be less than " + part.getInvMin());
+            return "OutsourcedPartForm";
+        } else if (part.getInv() > part.getInvMax()) {
+            bindingResult.rejectValue("inv", "invMaxError", "Inventory should not be greater than " + part.getInvMax());
             return "OutsourcedPartForm";
         }
 

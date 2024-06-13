@@ -43,9 +43,12 @@ public class AddInhousePartController{
             return "InhousePartForm";
         }
 
-        if (part.getInv() < part.getInvMin() || part.getInv() > part.getInvMax()) {
-            theBindingResult.rejectValue("inv", "invError", "Inventory should be between " + part.getInvMin() + " and " + part.getInvMax());
-            return "OutsourcedPartForm";
+        if (part.getInv() < part.getInvMin()) {
+            theBindingResult.rejectValue("inv", "invMinError", "Inventory should not be less than " + part.getInvMin());
+            return "InhousePartForm";
+        } else if (part.getInv() > part.getInvMax()) {
+            theBindingResult.rejectValue("inv", "invMaxError", "Inventory should not be greater than " + part.getInvMax());
+            return "InhousePartForm";
         }
 
         else{
