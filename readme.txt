@@ -1,5 +1,7 @@
 Part C
 
+Customize HTML interface for the customer's application:
+
 Changed font and store name to "<Keyed In>" on mainscreen.html, lines 14-18, 23 (6/4/2024)
 Added "Confirm Part" to title of confirmationaddpart, line 7, 6/5
 Added "Confirm Product" to title of confirmationaddproduct, line 7, 6/5
@@ -9,6 +11,8 @@ Applied CSS provided on mainscreen to the following and adjust formatting with d
 
 Part D
 
+For About Page:
+
 Created about.html in templates using CSS provided
 Added cohesive background color and font, line 20 & line 23
 Added brief background of company goals, lines 28-31
@@ -17,22 +21,24 @@ Added header "who we are", line 26
 
 On mainscreen.html, added "About Us" button leading to new about page, line 25
 
-Created AboutController
+Created AboutController under controllers:
 Imported Controller, GetMapping, Autowired, and Application Context, lines 3-6
 Created mapping for the about page to be used with the About Us button, lines 10-15
 
 Part E
 
 Modified BootStrapData by adding a sample inventory of five parts and five products that will remain 5 by default based on the count of outsourced
-part repository and product repository, lines 42-87 and lines 98-108
+part repository and product repository, lines 36-85 and lines 101-112
 
 Part F
 Created a new controller 'ProductBuyController' to handle product purchases
-Created purchaseProduct in ProductBuyController that handles decreasing the product inventory count and returns success or failure, lines 30-37
-Created purchaseStatus in ProductBuyController that returns message and depending on success or failure, lines 39-50
+Created purchaseProduct in ProductBuyController that handles decreasing the product inventory count by 1 and returns success or failure, lines 30-37
+Created purchaseStatus in ProductBuyController that returns message depending on success or failure, lines 39-50
 
 Created purchasestatus.html that displays message from purchaseStatus and
 displays a return home option , lines 17-22
+
+Added "Buy Now" button to mainscreen.html next to Update and Delete buttons, line 96
 
 Part G
 In part.java, added new constructor (lines 56-62) to account for new invMin and invMax variables (lines 31-33)
