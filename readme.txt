@@ -54,3 +54,7 @@ Created successful test unit for getInvMin under PartTest, lines 162-169
 Created successful test unit for setInvMax under PartTest, lines 171-178
 Created successful test unit for getInvMax under PartTest, lines 180-187
 
+Part J
+Removed any unused validators, imports, code with no usage, line 31-33 MainScreenController, line 19 InhousePartService, validator DeletePartValidator
+
+

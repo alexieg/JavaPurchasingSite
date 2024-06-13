@@ -41,8 +41,6 @@ public class InhousePartServiceImpl implements InhousePartService {
             thePart = result.get();
         }
         else {
-            // we didn't find the InhousePart id
-            //throw new RuntimeException("Did not find part id - " + theId);
             return null;
         }
 
@@ -53,12 +51,6 @@ public class InhousePartServiceImpl implements InhousePartService {
     public void save(InhousePart thePart) {
         partRepository.save(thePart);
 
-    }
-
-    @Override
-    public void deleteById(int theId) {
-        Long theIdl=(long)theId;
-        partRepository.deleteById(theIdl);
     }
 
 }

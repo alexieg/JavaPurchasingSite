@@ -39,8 +39,6 @@ public class OutsourcedPartServiceImpl implements OutsourcedPartService{
             thePart = result.get();
         }
         else {
-            // we didn't find the OutSourced id
-            //throw new RuntimeException("Did not find part id - " + theId);
             return null;
         }
 
@@ -51,12 +49,6 @@ public class OutsourcedPartServiceImpl implements OutsourcedPartService{
     public void save(OutsourcedPart thePart) {
         partRepository.save(thePart);
 
-    }
-
-    @Override
-    public void deleteById(int theId) {
-        Long theIdl=(long)theId;
-        partRepository.deleteById(theIdl);
     }
 
 }
