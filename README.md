@@ -36,9 +36,9 @@ Modified BootStrapData by adding a sample inventory of five parts and five produ
 part repository and product repository, lines 36-85 and lines 101-112
 
 ## Part F: Add a “Buy Now” button to your product list. Your “Buy Now” button must meet each of the following parameters:
-##•  The “Buy Now” button must be next to the buttons that update and delete products.
-##•  The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts.
-##•  Display a message that indicates the success or failure of a purchase.
+### •  The “Buy Now” button must be next to the buttons that update and delete products.
+### •  The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts.
+### •  Display a message that indicates the success or failure of a purchase.
 
 Created a new controller 'ProductBuyController' to handle product purchases
 Created purchaseProduct in ProductBuyController that handles decreasing the product inventory count by 1 and returns success or failure, lines 30-37
@@ -50,11 +50,11 @@ displays a return home option , lines 17-22
 Added "Buy Now" button to mainscreen.html next to Update and Delete buttons, line 96
 
 ## Part G: Modify the parts to track maximum and minimum inventory by doing the following:
-##•  Add additional fields to the part entity for maximum and minimum inventory.
-##•  Modify the sample inventory to include the maximum and minimum fields.
-##•  Add to the InhousePartForm and OutsourcedPartForm forms additional text inputs for the inventory so the user can set the maximum and minimum values.
-##•  Rename the file the persistent storage is saved to.
-##•  Modify the code to enforce that the inventory is between or at the minimum and maximum value.
+### •  Add additional fields to the part entity for maximum and minimum inventory.
+### •  Modify the sample inventory to include the maximum and minimum fields.
+### •  Add to the InhousePartForm and OutsourcedPartForm forms additional text inputs for the inventory so the user can set the maximum and minimum values.
+### •  Rename the file the persistent storage is saved to.
+### •  Modify the code to enforce that the inventory is between or at the minimum and maximum value.
 
 In part.java, added new constructor (lines 56-62) to account for new invMin and invMax variables (lines 31-33)
 In BootStrapData, incorporated new variables and assigned values to each part involving setters and getters for invMin and invMax, lines 49, 50, 58, 59, 67, 68, 76, 77, 85, 86
@@ -66,9 +66,9 @@ Added minimum inventory and maximum inventory categories to mainscreen.html, lin
 Renamed database to keyed-in-new and reflected the change in application properties, line 6
 
 ## Part H: Add validation for between or at the maximum and minimum fields. The validation must include the following:
-##•  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
-###•  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
-##•  Display error messages when adding and updating parts if the inventory is greater than the maximum.
+### •  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
+### •  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
+### •  Display error messages when adding and updating parts if the inventory is greater than the maximum.
 
 Specified error messages from Part G of AddInhousePartController and AddOutsourcedPartController (lines 42-56) to let user know whether their inventory is below the min or above the max
 Added validation to EnufPartsValidator to check for the appropriate amount of associated parts when adding/updating products (line 37)
