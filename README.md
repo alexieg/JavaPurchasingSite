@@ -1,26 +1,88 @@
-<strong>** DO NOT DISTRIBUTE OR PUBLICLY POST SOLUTIONS TO THESE LABS. MAKE ALL FORKS OF THIS REPOSITORY WITH SOLUTION CODE PRIVATE. PLEASE REFER TO THE STUDENT CODE OF CONDUCT AND ETHICAL EXPECTATIONS FOR COLLEGE OF INFORMATION TECHNOLOGY STUDENTS FOR SPECIFICS. ** </strong>
-
 # WESTERN GOVERNOR UNIVERSITY 
 ## D287 – JAVA FRAMEWORKS
-Welcome to Java Frameworks! This is an opportunity for students to implement user interfaces and learn to leverage existing frameworks, assets, and content for object-oriented programming.
-FOR SPECIFIC TASK INSTRUCTIONS AND REQUIREMENTS FOR THIS ASSESSMENT, PLEASE REFER TO THE COURSE PAGE.
-## BASIC INSTRUCTIONS
-For this project, you will use the Integrated Development Environment (IDE) link in the web links section of this assessment to install the IDE, IntelliJ IDEA (Ultimate Edition). All relevant links are on the course page. Please refer to the course of study for specific links. You will sign up for a free student license using your WGU.edu email address. Please see the “IntelliJ Ultimate Edition Instructions” attachment for instructions on how do this. Next you will download the “Inventory Management Application Template Code” provided in the web links section and open it in IntelliJ IDEA (Ultimate Edition). You will upload this project to a private external GitLab repository and backup regularly. As a part of this, you have been provided with a base code (starting point). 
 
-## SUPPLEMENTAL RESOURCES  
-1.	How to clone a project to IntelliJ using Git?
+## Part C: Customize the HTML user interface for your customer’s application. The user interface should include the shop name, the product names, and the names of the parts.
 
-> Ensure that you have Git installed on your system and that IntelliJ is installed using [Toolbox](https://www.jetbrains.com/toolbox-app/). Make sure that you are using version 2022.3.2. Once this has been confirmed, click the clone button and use the 'IntelliJ IDEA (HTTPS)' button. This will open IntelliJ with a prompt to clone the proejct. Save it in a safe location for the directory and press clone. IntelliJ will prompt you for your credentials. Enter in your WGU Credentials and the project will be cloned onto your local machine.  
+Customize HTML interface for the customer's application:
 
-2. How to create a branch and start Development?
+Changed font and store name to "<Keyed In>" on mainscreen.html, lines 14-18, 23
+Added "Confirm Part" to title of confirmationaddpart.html, line 7
+Added "Confirm Product" to title of confirmationaddproduct.html, line 7
+Added "Confirmation" to title of confirmationassocpart.html, confirmationdeletepart.html, confirmationdeleteproduct.html, line 7, 6/5
+Added background color in <body> element of each html page (inhousepartform.html, line 9; mainscreen.html, line 20; outsourcedpartform.html, line 9; productform.html, line 9)
+Applied CSS provided on mainscreen.html to the following and adjust formatting with div class container: inhousepartform.html, line ; mainscreen.html, line 20; outsourcedpartform.html, line 9; productform.html, line 9
 
-- GitLab method
-> Press the '+' button located near your branch name. In the dropdown list, press the 'New branch' button. This will allow you to create a name for your branch. Once the branch has been named, you can select 'Create Branch' to push the branch to your repository.
+## Part D: Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.
 
-- IntelliJ method
-> In IntelliJ, Go to the 'Git' button on the top toolbar. Select the new branch option and create a name for the branch. Make sure checkout branch is selected and press create. You can now add a commit message and push the new branch to the local repo.
 
-## SUPPORT
-If you need additional support, please navigate to the course page and reach out to your course instructor.
-## FUTURE USE
-Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
+For About Page:
+
+Created about.html in templates using CSS provided
+Added cohesive background color and font, line 20 & line 23
+Added brief background of company goals, lines 28-31
+Changed title to be About Us, line 18
+Added header "who we are", line 26
+
+On mainscreen.html, added "About Us" button leading to new about page, line 25
+Added link to home page on about.html, lines 32-33
+
+Created AboutController under controllers:
+Imported Controller, GetMapping, Autowired, and Application Context, lines 3-6
+Created mapping for the about page to be used with the About Us button, lines 10-15
+
+## Part E: Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.
+
+Modified BootStrapData by adding a sample inventory of five parts and five products that will remain 5 by default based on the count of outsourced
+part repository and product repository, lines 36-85 and lines 101-112
+
+## Part F: Add a “Buy Now” button to your product list. Your “Buy Now” button must meet each of the following parameters:
+### •  The “Buy Now” button must be next to the buttons that update and delete products.
+### •  The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts.
+### •  Display a message that indicates the success or failure of a purchase.
+
+Created a new controller 'ProductBuyController' to handle product purchases
+Created purchaseProduct in ProductBuyController that handles decreasing the product inventory count by 1 and returns success or failure, lines 30-37
+Created purchaseStatus in ProductBuyController that returns message depending on success or failure, lines 39-50
+
+Created purchasestatus.html that displays message from purchaseStatus and
+displays a return home option , lines 17-22
+
+Added "Buy Now" button to mainscreen.html next to Update and Delete buttons, line 96
+
+## Part G: Modify the parts to track maximum and minimum inventory by doing the following:
+### •  Add additional fields to the part entity for maximum and minimum inventory.
+### •  Modify the sample inventory to include the maximum and minimum fields.
+### •  Add to the InhousePartForm and OutsourcedPartForm forms additional text inputs for the inventory so the user can set the maximum and minimum values.
+### •  Rename the file the persistent storage is saved to.
+### •  Modify the code to enforce that the inventory is between or at the minimum and maximum value.
+
+In part.java, added new constructor (lines 56-62) to account for new invMin and invMax variables (lines 31-33)
+In BootStrapData, incorporated new variables and assigned values to each part involving setters and getters for invMin and invMax, lines 49, 50, 58, 59, 67, 68, 76, 77, 85, 86
+Added checker for inventory between the invMin and invMax to part.java (isInvValid with invError), lines 124-134
+Added error messaging for isInvValid to AddInhousePartController and AddOutsourcedPartController, lines 46-49
+
+Added invMin and invMax input fields with error messaging to outsourcedpartform.html and inhousepartform.html, lines 39-43
+Added minimum inventory and maximum inventory categories to mainscreen.html, lines 45 and 46
+Renamed database to keyed-in-new and reflected the change in application properties, line 6
+
+## Part H: Add validation for between or at the maximum and minimum fields. The validation must include the following:
+### •  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
+### •  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
+### •  Display error messages when adding and updating parts if the inventory is greater than the maximum.
+
+Specified error messages from Part G of AddInhousePartController and AddOutsourcedPartController (lines 42-56) to let user know whether their inventory is below the min or above the max
+Added validation to EnufPartsValidator to check for the appropriate amount of associated parts when adding/updating products (line 37)
+
+## Part I: Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
+
+Created successful test unit for setInvMin, setter for invMin, under PartTest, lines 153-160
+Created successful test unit for getInvMin, getter for invMin, under PartTest, lines 162-169
+Created successful test unit for setInvMax, setter for invMax, under PartTest, lines 171-178
+Created successful test unit for getInvMax, getter for invMax, under PartTest, lines 180-187
+
+## Part J: Remove the class files for any unused validators in order to clean your code.
+
+Removed any unused validators, imports, code with no usage, line 31-33 MainScreenController, line 19 InhousePartService, validator DeletePartValidator
+
+
+
